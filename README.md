@@ -1,1 +1,1 @@
-# srPermission
+# sr-permissions
