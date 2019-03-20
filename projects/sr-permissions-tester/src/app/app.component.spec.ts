@@ -16,10 +16,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'sr-permissions-tester'`, () => {
+  it(`should have default role admin`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('sr-permissions-tester');
+    expect(app.role).toEqual('admin');
   });
 
   it('should render title in a h1 tag', () => {

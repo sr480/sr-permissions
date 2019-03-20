@@ -7,18 +7,19 @@ import { SrPermissionsService } from 'projects/sr-permissions/src/public-api';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'sr-permissions-tester';
-  private lastRole = 'admin';
+  role = 'admin';
   constructor(private permissionsService: SrPermissionsService) {
     permissionsService.setRoles(['admin']);
   }
 
   toggleRole() {
-    if (this.lastRole === 'admin') {
-      this.lastRole = 'user';
+    if (this.role === 'admin') {
+      this.role = 'user';
+    } else if (this.role === 'user') {
+      this.role = 'superuser';
     } else {
-      this.lastRole = 'admin';
+      this.role = 'admin';
     }
-    this.permissionsService.setRoles([this.lastRole]);
+    this.permissionsService.setRoles([this.role]);
   }
 }
