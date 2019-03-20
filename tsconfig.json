@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "sr-permissions": [
+        "dist/sr-permissions"
+      ],
+      "sr-permissions/*": [
+        "dist/sr-permissions/*"
+      ]
+    }
   }
 }
