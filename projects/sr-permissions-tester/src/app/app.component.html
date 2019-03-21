@@ -1,0 +1,17 @@
+<button (click)="toggleRole()">Toggle role</button>
+You are {{role}}
+<ul>
+  <li *srPermissionsOnly="'user'">
+    <h2>This is for user only</h2>
+  </li>
+  <li *srPermissionsOnly="'admin'">
+    <h2>This is for admin only</h2>
+  </li>
+  <li *srPermissionsExcept="'user'">
+    <h2>This is not for user</h2>
+  </li>
+  <li *srPermissionsOnly="['admin', 'user']">
+    <h2>This is for admin or user</h2>
+  </li>
+</ul>
+

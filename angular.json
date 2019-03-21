@@ -2,5 +2,170 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "sr-permissions": {
+      "root": "projects/sr-permissions",
+      "sourceRoot": "projects/sr-permissions/src",
+      "projectType": "library",
+      "prefix": "sr",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/sr-permissions/tsconfig.lib.json",
+            "project": "projects/sr-permissions/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sr-permissions/src/test.ts",
+            "tsConfig": "projects/sr-permissions/tsconfig.spec.json",
+            "karmaConfig": "projects/sr-permissions/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sr-permissions/tsconfig.lib.json",
+              "projects/sr-permissions/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "sr-permissions-tester": {
+      "root": "projects/sr-permissions-tester/",
+      "sourceRoot": "projects/sr-permissions-tester/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/sr-permissions-tester",
+            "index": "projects/sr-permissions-tester/src/index.html",
+            "main": "projects/sr-permissions-tester/src/main.ts",
+            "polyfills": "projects/sr-permissions-tester/src/polyfills.ts",
+            "tsConfig": "projects/sr-permissions-tester/tsconfig.app.json",
+            "assets": [
+              "projects/sr-permissions-tester/src/favicon.ico",
+              "projects/sr-permissions-tester/src/assets"
+            ],
+            "styles": [
+              "projects/sr-permissions-tester/src/styles.css"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/sr-permissions-tester/src/environments/environment.ts",
+                  "with": "projects/sr-permissions-tester/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "sr-permissions-tester:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "sr-permissions-tester:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "sr-permissions-tester:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sr-permissions-tester/src/test.ts",
+            "polyfills": "projects/sr-permissions-tester/src/polyfills.ts",
+            "tsConfig": "projects/sr-permissions-tester/tsconfig.spec.json",
+            "karmaConfig": "projects/sr-permissions-tester/karma.conf.js",
+            "styles": [
+              "projects/sr-permissions-tester/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/sr-permissions-tester/src/favicon.ico",
+              "projects/sr-permissions-tester/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sr-permissions-tester/tsconfig.app.json",
+              "projects/sr-permissions-tester/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "sr-permissions-tester-e2e": {
+      "root": "projects/sr-permissions-tester-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/sr-permissions-tester-e2e/protractor.conf.js",
+            "devServerTarget": "sr-permissions-tester:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "sr-permissions-tester:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/sr-permissions-tester-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "sr-permissions"
 }
