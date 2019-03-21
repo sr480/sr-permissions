@@ -5,3 +5,4 @@
 export * from './lib/sr-permissions.module';
 export * from './lib/sr-permissions.service';
 export * from './lib/sr-permissions.directive';
+export * from './lib/sr-permissions.guard';

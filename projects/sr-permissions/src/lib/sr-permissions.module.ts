@@ -1,10 +1,10 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { SrPermissionsDirective } from './sr-permissions.directive';
 import { SrPermissionsService } from './sr-permissions.service';
+import { InfoPageComponent } from './info-page/info-page.component';
 
 @NgModule({
-  declarations: [SrPermissionsDirective],
-  imports: [],
+  declarations: [SrPermissionsDirective, InfoPageComponent],
   exports: [SrPermissionsDirective]
 })
 export class SrPermissionsModule {

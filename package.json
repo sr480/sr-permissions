@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve sr-permissions-tester",
+    "start": "ng serve sr-permissions-tester --port=4201",
     "build": "ng build sr-permissions",
     "build-tester": "ng build sr-permissions-tester",
     "test": "ng test sr-permissions",

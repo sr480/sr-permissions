@@ -15,3 +15,13 @@ You are {{role}}
   </li>
 </ul>
 
+<a [routerLink]="['/for-user']">For user</a>
+<br>
+<a [routerLink]="['/for-admin']">For admin and superuser</a>
+<br>
+<a [routerLink]="['/except-user']">Except user</a>
+<br>
+<a [routerLink]="['/about']">About</a>
+<br>
+
+<router-outlet></router-outlet>

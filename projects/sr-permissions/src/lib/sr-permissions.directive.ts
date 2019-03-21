@@ -59,12 +59,12 @@ export class SrPermissionsDirective implements OnChanges, OnDestroy {
 
     if (value instanceof Array) {
       for (const item of value) {
-        if (item.toLowerCase && this.roles.find(r => r === item)) {
+        if (this.roles.find(r => r === item)) {
           return true;
         }
       }
     } else {
-      if (value.toLowerCase && this.roles.find(r => r === value)) {
+      if (this.roles.find(r => r === value)) {
         return true;
       }
     }
